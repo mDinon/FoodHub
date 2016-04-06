@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FoodHub</string>
+    <string name="splashImage">Logo</string>
+    <string name="imeObjekta">ImeObjekta</string>
+    <string name="vrstaObjekta">VrstaObjekta</string>
+
+</resources>
