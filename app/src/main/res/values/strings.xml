@@ -3,5 +3,6 @@
     <string name="splashImage">Logo</string>
     <string name="imeObjekta">ImeObjekta</string>
     <string name="vrstaObjekta">VrstaObjekta</string>
+    <string name="logoObjekta">logoObjekta</string>
 
 </resources>
