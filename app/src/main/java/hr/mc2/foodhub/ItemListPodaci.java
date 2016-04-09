@@ -10,11 +10,13 @@ public class ItemListPodaci implements Serializable {
     private String imeObjekta;
     private String vrstaObjekta;
     private int rating;
+    private int imageResource;
 
-    public ItemListPodaci(String imeObjekta, String vrstaObjekta, int rating){
+    public ItemListPodaci(String imeObjekta, String vrstaObjekta, int rating, int imageResource){
         this.imeObjekta = imeObjekta;
         this.vrstaObjekta = vrstaObjekta;
         this.rating = rating;
+        this.imageResource = imageResource;
     }
 
     public String getImeObjekta() {
@@ -28,6 +30,10 @@ public class ItemListPodaci implements Serializable {
     public String getRating(){
         String convertRating = Integer.toString(this.rating);
         return convertRating;
+    }
+
+    public int getImageResource(){
+        return this.imageResource;
     }
 }
 

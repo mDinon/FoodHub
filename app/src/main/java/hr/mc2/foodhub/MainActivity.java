@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
 
     public ArrayList<ItemListPodaci> Restorani = new ArrayList<>();
 
-    ItemListPodaci objekt1 = new ItemListPodaci("Ime objekta 1", "Vrsta objekta 1", 100);
-    ItemListPodaci objekt2 = new ItemListPodaci("Ime objekta 2", "Vrsta objekta 2", 50);
-    ItemListPodaci objekt3 = new ItemListPodaci("Ime objekta 3", "Vrsta objekta 3", 25);
+    ItemListPodaci objekt1 = new ItemListPodaci("Ime objekta 1", "Vrsta objekta 1", 100, R.drawable.logo);
+    ItemListPodaci objekt2 = new ItemListPodaci("Ime objekta 2", "Vrsta objekta 2", 50, R.drawable.logo);
+    ItemListPodaci objekt3 = new ItemListPodaci("Ime objekta 3", "Vrsta objekta 3", 25, R.drawable.logo);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

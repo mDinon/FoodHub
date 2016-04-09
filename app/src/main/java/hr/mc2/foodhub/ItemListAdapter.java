@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,11 +32,13 @@ public class ItemListAdapter extends ArrayAdapter<ItemListPodaci> {
         TextView textImeObjekta = (TextView) convertView.findViewById(R.id.imeObjekta);
         TextView textVrstaObjekta = (TextView) convertView.findViewById(R.id.vrstaObjekta);
         TextView textRating = (TextView) convertView.findViewById(R.id.rating);
+        ImageView imageLogo = (ImageView) convertView.findViewById(R.id.logoObjekta);
 
         // Populacija podataka u dohvaćene view-ove
         textImeObjekta.setText(noviPodaci.getImeObjekta());
         textVrstaObjekta.setText(noviPodaci.getVrstaObjekta());
         textRating.setText(noviPodaci.getRating());
+        imageLogo.setImageResource(noviPodaci.getImageResource());
 
         // Vraćanje završenog view-a kako bi se prikazao na ekranu
         return convertView;
