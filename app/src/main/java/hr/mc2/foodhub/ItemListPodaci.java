@@ -40,30 +40,5 @@ public class ItemListPodaci {
         return this.imageResource;
     }
 
-    public static void bubble_srt_rating(ArrayList<ItemListPodaci> podaci) {
-        int n = podaci.size();
-        int k;
-        for (int m = n; m >= 0; m--) {
-            for (int i = 0; i < n - 1; i++) {
-                k = i + 1;
-                if (podaci.get(i).getRatingInt() < podaci.get(k).getRatingInt()) {
-                    swapNumbers(i, k, podaci);
-                }
-            }
-        }
-    }
-
-    private static void swapNumbers(int i, int j, ArrayList<ItemListPodaci> array) {
-        ItemListPodaci temp;
-        temp = array.get(i);
-        //array.get(i) = array.get(j);
-        array.set(i, array.get(j));
-        //array.get(j) = temp;
-        array.set(j, temp);
-
-    }
-
-
-
 }
 

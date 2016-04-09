@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_add_contact"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_trending_down_white_48dp"
         android:title="@string/splashImage"
         app:showAsAction="always" />
 
