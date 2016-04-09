@@ -1,13 +1,22 @@
 package hr.mc2.foodhub;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         Restorani.add(objekt4);
         Restorani.add(objekt5);
 
+        //objekt1.bubble_srt_rating(Restorani);
+
         // Kreiranje array liste custom klase i popunjavanje iste
         ArrayList<ItemListPodaci> objekti = new ArrayList<>();
         for(int i=0; i<Restorani.size();i++){
@@ -45,6 +56,23 @@ public class MainActivity extends AppCompatActivity {
         // Postavljanje adaptera u listview
         ListView listView = (ListView) findViewById(R.id.listView2);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        objekt1.bubble_srt_rating(Restorani);
+        // Kreiranje adaptera koji konvertira polje u view
+        ItemListAdapter adapter = new ItemListAdapter(this,Restorani);
+        // Postavljanje adaptera u listview
+        ListView listView = (ListView) findViewById(R.id.listView2);
+        listView.setAdapter(adapter);
+        return true;
     }
 
 }
