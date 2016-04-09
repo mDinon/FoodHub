@@ -25,8 +25,9 @@ public class ItemListPodaci implements Serializable {
         return this.vrstaObjekta;
     }
 
-    public int getRating(){
-        return this.rating;
+    public String getRating(){
+        String convertRating = Integer.toString(this.rating);
+        return convertRating;
     }
 }
 
