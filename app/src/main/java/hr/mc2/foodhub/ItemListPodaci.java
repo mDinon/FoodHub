@@ -7,14 +7,26 @@ import java.io.Serializable;
  * Created by Matija on 6.4.2016..
  */
 public class ItemListPodaci implements Serializable {
-    public String imeObjekta;
-    public String vrstaObjekta;
-    public int rating;
+    private String imeObjekta;
+    private String vrstaObjekta;
+    private int rating;
 
     public ItemListPodaci(String imeObjekta, String vrstaObjekta, int rating){
         this.imeObjekta = imeObjekta;
         this.vrstaObjekta = vrstaObjekta;
         this.rating = rating;
+    }
+
+    public String getImeObjekta() {
+        return this.imeObjekta;
+    }
+
+    public String getVrstaObjekta() {
+        return this.vrstaObjekta;
+    }
+
+    public int getRating(){
+        return this.rating;
     }
 }
 

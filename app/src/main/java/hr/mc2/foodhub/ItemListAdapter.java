@@ -33,10 +33,12 @@ public class ItemListAdapter extends ArrayAdapter<ItemListPodaci> {
         TextView textRating = (TextView) convertView.findViewById(R.id.rating);
 
         // Populacija podataka u dohvaćene view-ove
-        textImeObjekta.setText(noviPodaci.imeObjekta);
-        textVrstaObjekta.setText(noviPodaci.vrstaObjekta);
-        textRating.setText(noviPodaci.rating);
+        textImeObjekta.setText(noviPodaci.getImeObjekta());
+        textVrstaObjekta.setText(noviPodaci.getVrstaObjekta());
+        textRating.setText(noviPodaci.getRating());
+
         // Vraćanje završenog view-a kako bi se prikazao na ekranu
         return convertView;
     }
+
 }
