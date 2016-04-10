@@ -1,6 +1,7 @@
 package hr.mc2.foodhub;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,9 @@ public class ItemListAdapter extends ArrayAdapter<ItemListPodaci> {
         imageLogo.setImageResource(noviPodaci.getImageResource());
 
         // Vraćanje završenog view-a kako bi se prikazao na ekranu
+        if(position % 2 == 0){
+          convertView.setBackgroundColor(Color.LTGRAY);
+        }
         return convertView;
     }
 

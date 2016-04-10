@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -22,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     public ArrayList<ItemListPodaci> Restorani = new ArrayList<>();
 
-    ItemListPodaci objekt1 = new ItemListPodaci("Ime objekta 1", "Vrsta objekta 1", 100, R.drawable.logo);
-    ItemListPodaci objekt2 = new ItemListPodaci("Ime objekta 2", "Vrsta objekta 2", 50, R.drawable.logo);
-    ItemListPodaci objekt3 = new ItemListPodaci("Ime objekta 3", "Vrsta objekta 3", 25, R.drawable.logo);
-    ItemListPodaci objekt4 = new ItemListPodaci("Ime objekta 4", "Vrsta objekta 4", 100, R.drawable.logo);
-    ItemListPodaci objekt5 = new ItemListPodaci("Ime objekta 5", "Vrsta objekta 5", 50, R.drawable.logo);
+    ItemListPodaci objekt1 = new ItemListPodaci("A_Ime objekta 1", "Vrsta objekta 1", 100, R.drawable.logo);
+    ItemListPodaci objekt2 = new ItemListPodaci("B_Ime objekta 2", "Vrsta objekta 2", 50, R.drawable.logo);
+    ItemListPodaci objekt3 = new ItemListPodaci("C_Ime objekta 3", "Vrsta objekta 3", 25, R.drawable.logo);
+    ItemListPodaci objekt4 = new ItemListPodaci("AAIme objekta 4", "Vrsta objekta 4", 100, R.drawable.logo);
+    ItemListPodaci objekt5 = new ItemListPodaci("BBIme objekta 5", "Vrsta objekta 5", 50, R.drawable.logo);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +68,38 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        bubble_srt_rating_desc(Restorani);
+/*        bubbleSrtRatingDesc(Restorani);
         // Kreiranje adaptera koji konvertira polje u view
         ItemListAdapter adapter = new ItemListAdapter(this,Restorani);
         // Postavljanje adaptera u listview
         ListView listView = (ListView) findViewById(R.id.listView2);
         listView.setAdapter(adapter);
-        return true;
+        return true;*/
+
+        //handle presses on the action bar items
+        // Kreiranje adaptera koji konvertira polje u view
+        ItemListAdapter adapter = new ItemListAdapter(this,Restorani);
+        // Postavljanje adaptera u listview
+        ListView listView = (ListView) findViewById(R.id.listView2);
+
+        switch (item.getItemId()) {
+
+            case R.id.sortDescRating:
+                bubbleSrtRatingDesc(Restorani);
+                listView.setAdapter(adapter);
+                return true;
+
+            case R.id.sortDescAlpha:
+                bubbleSrtImeDesc(Restorani);
+                listView.setAdapter(adapter);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
-    public static void bubble_srt_rating_desc(ArrayList<ItemListPodaci> podaci) {
+
+    public static void bubbleSrtRatingDesc(ArrayList<ItemListPodaci> podaci) {
         int n = podaci.size();
         int k;
         for (int m = n; m >= 0; m--) {
@@ -92,10 +115,21 @@ public class MainActivity extends AppCompatActivity {
     private static void swapNumbers(int i, int j, ArrayList<ItemListPodaci> array) {
         ItemListPodaci temp;
         temp = array.get(i);
-        //array.get(i) = array.get(j);
         array.set(i, array.get(j));
-        //array.get(j) = temp;
         array.set(j, temp);
+    }
+
+    public static void bubbleSrtImeDesc(ArrayList<ItemListPodaci> podaci) {
+        int n = podaci.size();
+        int k;
+        for (int m = n; m >= 0; m--) {
+            for (int i = 0; i < n - 1; i++) {
+                k = i + 1;
+                if (podaci.get(i).getImeObjekta().compareTo(podaci.get(k).getImeObjekta()) > 0) {
+                    swapNumbers(i, k, podaci);
+                }
+            }
+        }
     }
 
 }

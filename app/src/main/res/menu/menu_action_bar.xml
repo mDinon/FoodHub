@@ -4,8 +4,14 @@
     tools:context="com.sartainstudios.contacts.AboutContacts">
 
     <item
-        android:id="@+id/action_add_contact"
+        android:id="@+id/sortDescRating"
         android:icon="@drawable/ic_trending_down_white_48dp"
+        android:title="@string/splashImage"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/sortDescAlpha"
+        android:icon="@drawable/ic_sort_by_alpha_white_48dp"
         android:title="@string/splashImage"
         app:showAsAction="always" />
 
