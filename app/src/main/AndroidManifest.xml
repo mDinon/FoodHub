@@ -9,6 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name="hr.mc2.foodhub.MenuActivity" />
+
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name" >
