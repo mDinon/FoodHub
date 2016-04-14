@@ -2,6 +2,7 @@ package hr.mc2.foodhub;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -19,8 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnItemClickListener {
 
     public ArrayList<ItemListPodaci> Restorani = new ArrayList<>();
 
@@ -39,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
     ItemListPodaci objekt12 = new ItemListPodaci("Abb", "Caffe bar", 60, R.drawable.logo);
     ItemListPodaci objekt13 = new ItemListPodaci("Aba", "Caffe bar", 60, R.drawable.logo);
 
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ItemListAdapter adapter = new ItemListAdapter(this,Restorani);
         // Postavljanje adaptera u listview
         ListView listView = (ListView) findViewById(R.id.listView2);
+        listView.setOnItemClickListener(this);
         listView.setAdapter(adapter);
     }
 
