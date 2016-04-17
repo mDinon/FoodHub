@@ -12,24 +12,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+/*Prvi fragment koji se otvori
+* Sadrži kratak opis objekta, ime i logo.*/
 public class AboutFragment extends Fragment {
 
     Button myButton;
     Button toMainMenu;
 
-   /* @Override
-    public void onClick(View v) {
-        Fragment foodFragment = new FoodFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, foodFragment);
-        //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }*/
-
     @Override
     public void onAttach(Activity context) {
         super.onAttach(context);
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -38,6 +37,7 @@ public class AboutFragment extends Fragment {
         ImageView logo = (ImageView) myInflatedView.findViewById(R.id.view_logo);
         TextView text = (TextView) myInflatedView.findViewById(R.id.textView);
 
+        //gumb za povratak u MainActivity
         toMainMenu = (Button) myInflatedView.findViewById(R.id.toMainMenu);
         toMainMenu.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -46,18 +46,19 @@ public class AboutFragment extends Fragment {
             }
         });
 
+        //gumb za prijelaz u FoodFragment
         myButton = (Button) myInflatedView.findViewById(R.id.butt);
         myButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Fragment foodFragment = new FoodFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, foodFragment);
-                //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
 
+        //Ovdje postavlja vrijednosti koje mu je poslala aktivnost putem bundlea
         String name_restaurant = getArguments().getString("name");
         int logo_restaurant = getArguments().getInt("logo");
         text.setText(name_restaurant);
@@ -65,10 +66,6 @@ public class AboutFragment extends Fragment {
         return myInflatedView;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
 
 
 }

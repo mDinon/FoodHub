@@ -12,6 +12,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
+/*Fragment za reviewove
+* Nema puno ovdje zasad*/
 public class ReviewFragment extends Fragment implements View.OnClickListener {
 
     Button myButton;
@@ -41,7 +44,6 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, foodFragment);
         transaction.addToBackStack(null);
-        //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         transaction.commit();
     }
 }
