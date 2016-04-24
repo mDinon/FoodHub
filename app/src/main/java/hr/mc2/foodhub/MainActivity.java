@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+        intent.putExtra("imeObjekta",Restorani.get(position).getImeObjekta());
+        intent.putExtra("logoObjekta",Restorani.get(position).getImageResource());
         startActivity(intent);
     }
 
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         Restorani.add(objekt1);
         Restorani.add(objekt2);

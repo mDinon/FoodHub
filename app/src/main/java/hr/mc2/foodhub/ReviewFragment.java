@@ -1,8 +1,8 @@
 package hr.mc2.foodhub;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /*Fragment za reviewove
 * Nema puno ovdje zasad*/
-public class ReviewFragment extends Fragment implements View.OnClickListener {
+public class ReviewFragment extends Fragment{
 
     Button myButton;
 
@@ -32,18 +32,7 @@ public class ReviewFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myInflatedView = inflater.inflate(R.layout.fragment_review, container, false);
-        myButton = (Button) myInflatedView.findViewById(R.id.RevToFood);
-        myButton.setOnClickListener(this);
 
         return myInflatedView;
-    }
-
-    @Override
-    public void onClick(View v) {
-        Fragment foodFragment = new FoodFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, foodFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 }

@@ -4,5 +4,8 @@
     <string name="imeObjekta">ImeObjekta</string>
     <string name="vrstaObjekta">VrstaObjekta</string>
     <string name="logoObjekta">logoObjekta</string>
+    <string name="tab1">About</string>
+    <string name="tab2">Menu</string>
+    <string name="tab3">Review</string>
 
 </resources>

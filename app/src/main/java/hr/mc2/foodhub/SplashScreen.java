@@ -16,9 +16,9 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         int splashDelay = 1500;
         setContentView(R.layout.splash);
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+       // android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         // Micanje action bara
-        actionBar.hide();
+        //actionBar.hide();
         // Pokretanje MainActivity-a nakon odgode od splashDelay sekundi
         new Handler().postDelayed(new Runnable() {
             @Override
