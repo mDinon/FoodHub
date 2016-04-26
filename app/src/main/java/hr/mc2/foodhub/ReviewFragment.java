@@ -2,12 +2,10 @@ package hr.mc2.foodhub;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,7 +15,13 @@ import java.util.ArrayList;
 * Nema puno ovdje zasad*/
 public class ReviewFragment extends Fragment{
 
-    Button myButton;
+    public ArrayList<ReviewListPodaci> Recenzije = new ArrayList<>();
+
+    ReviewListPodaci objekt1 = new ReviewListPodaci("Marko Dinon", "Jako ukusno moram priznat! Al ne ko rudarske greblice...", 50, R.drawable.test_logo);
+    ReviewListPodaci objekt2 = new ReviewListPodaci("Matija Kršić", "Svaki dolazim ovdje, super je.", 40, R.drawable.test_logo);
+    ReviewListPodaci objekt3 = new ReviewListPodaci("Matija Lastovčić", "Super sve. Dobar burek.", 40, R.drawable.test_logo);
+
+
 
     @Override
     public void onAttach(Activity context) {
@@ -32,6 +36,24 @@ public class ReviewFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myInflatedView = inflater.inflate(R.layout.fragment_review, container, false);
+
+        Recenzije.add(objekt1);
+        Recenzije.add(objekt2);
+        Recenzije.add(objekt3);
+
+        // Kreiranje array liste custom klase i popunjavanje iste
+        ArrayList<ReviewListPodaci> objekti = new ArrayList<>();
+        for(int i=0; i<Recenzije.size();i++){
+            objekti.add(Recenzije.get(i));
+        }
+
+        // Kreiranje adaptera koji konvertira polje u view
+        /*ReviewListAdapter adapter = new ItemListAdapter(getActivity(),Recenzije);*/
+        ReviewListAdapter adapter = (new ReviewListAdapter(getActivity(), R.layout.fragment_review, Recenzije));
+        // Postavljanje adaptera u listview
+        ListView listView = (ListView) myInflatedView.findViewById(R.id.reviewList);
+        //listView.setOnItemClickListener(this);
+        listView.setAdapter(adapter);
 
         return myInflatedView;
     }
