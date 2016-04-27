@@ -1,7 +1,6 @@
 package hr.mc2.foodhub;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

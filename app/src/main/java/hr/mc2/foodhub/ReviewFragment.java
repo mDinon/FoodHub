@@ -17,9 +17,9 @@ public class ReviewFragment extends Fragment{
 
     public ArrayList<ReviewListPodaci> Recenzije = new ArrayList<>();
 
-    ReviewListPodaci objekt1 = new ReviewListPodaci("Marko Dinon", "Jako ukusno moram priznat! Al ne ko rudarske greblice...", 50, R.drawable.test_logo);
-    ReviewListPodaci objekt2 = new ReviewListPodaci("Matija Kršić", "Svaki dolazim ovdje, super je.", 40, R.drawable.test_logo);
-    ReviewListPodaci objekt3 = new ReviewListPodaci("Matija Lastovčić", "Super sve. Dobar burek.", 40, R.drawable.test_logo);
+    ReviewListPodaci objekt1 = new ReviewListPodaci("Marko Dinon", "Jako ukusno moram priznat! Al ne ko rudarske greblice...", 50, R.drawable.test_avatar);
+    ReviewListPodaci objekt2 = new ReviewListPodaci("Matija Kršić", "Svaki dolazim ovdje, super je.", 40, R.drawable.test_avatar);
+    ReviewListPodaci objekt3 = new ReviewListPodaci("Matija Lastovčić", "Super sve. Dobar burek.", 40, R.drawable.test_avatar);
 
 
 

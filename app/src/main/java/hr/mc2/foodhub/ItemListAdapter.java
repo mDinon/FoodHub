@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 
@@ -44,7 +45,10 @@ public class ItemListAdapter extends ArrayAdapter<ItemListPodaci> {
 
         // Vraćanje završenog view-a kako bi se prikazao na ekranu
         if(position % 2 == 0){
-          convertView.setBackgroundColor(Color.LTGRAY);
+            convertView.setBackgroundColor(Color.LTGRAY);
+            /*float[] a = {216,49,100};
+            convertView.setBackgroundColor(Color.HSVToColor(a));*/
+            //convertView.textImeObjekta.setTextColor(Color.WHITE);
         }
         return convertView;
     }

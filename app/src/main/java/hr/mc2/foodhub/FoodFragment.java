@@ -2,14 +2,12 @@ package hr.mc2.foodhub;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,8 +17,11 @@ import java.util.List;
 /*Prikazuje cjenik*/
 public class FoodFragment extends Fragment{
 
-    Button FoodToAboutButton;
-    Button FoodToReviewButton;
+    public ArrayList<FoodListPodaci> Hrana = new ArrayList<>();
+
+    FoodListPodaci objekt1 = new FoodListPodaci("Pizza miješana", 35);
+    FoodListPodaci objekt2 = new FoodListPodaci("Pizza slavonska", 38);
+    FoodListPodaci objekt3 = new FoodListPodaci("Pizza vegetariana", 35);
 
     @Override
     public void onAttach(Activity context) {
@@ -36,7 +37,25 @@ public class FoodFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myInflatedView = inflater.inflate(R.layout.fragment_food, container,false);
 
-        //Trenutno fiksne vrijednosti liste, TRENUTNO
+        Hrana.add(objekt1);
+        Hrana.add(objekt2);
+        Hrana.add(objekt3);
+
+        // Kreiranje array liste custom klase i popunjavanje iste
+        ArrayList<FoodListPodaci> objekti = new ArrayList<>();
+        for(int i=0; i<Hrana.size();i++){
+            objekti.add(Hrana.get(i));
+        }
+
+        // Kreiranje adaptera koji konvertira polje u view
+        /*ReviewListAdapter adapter = new ItemListAdapter(getActivity(),Recenzije);*/
+        FoodListAdapter adapter = (new FoodListAdapter(getActivity(), R.layout.fragment_food, Hrana));
+        // Postavljanje adaptera u listview
+        ListView listView = (ListView) myInflatedView.findViewById(R.id.listViewFood);
+        //listView.setOnItemClickListener(this);
+        listView.setAdapter(adapter);
+
+        /*//Trenutno fiksne vrijednosti liste, TRENUTNO
         final ListView listview = (ListView) myInflatedView.findViewById(R.id.listView);
         String[] values = new String[] { "Pizza", "Hamburger", "Sushi",
                 "Suhi beton", "Žganci", "Rudarske greblice", "Kisela ljuta juha", "酸汤素" };
@@ -48,12 +67,12 @@ public class FoodFragment extends Fragment{
         }
 
         final StableArrayAdapter adapter = (new StableArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, list));
-        listview.setAdapter(adapter);
+        listview.setAdapter(adapter);*/
         return myInflatedView;
     }
 
     //Ugnježđena klasa
-    private class StableArrayAdapter extends ArrayAdapter<String> {
+   /* private class StableArrayAdapter extends ArrayAdapter<String> {
 
         HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
 
@@ -76,6 +95,6 @@ public class FoodFragment extends Fragment{
             return true;
         }
 
-    }
+    }*/
 
 }

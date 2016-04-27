@@ -18,7 +18,9 @@ public class MenuActivity extends AppCompatActivity implements FragmentCommunica
         Intent intent = getIntent();
         Bundle data = new Bundle();
         data.putString("name", intent.getStringExtra("imeObjekta"));
+        data.putString("opis", intent.getStringExtra("opisObjekta"));
         data.putInt("logo", intent.getIntExtra("logoObjekta",0));
+        data.putString("rating", intent.getStringExtra("ratingObjekta"));
         return data;
     }
 

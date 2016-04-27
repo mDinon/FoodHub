@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
         intent.putExtra("imeObjekta",Restorani.get(position).getImeObjekta());
         intent.putExtra("logoObjekta",Restorani.get(position).getImageResource());
+        intent.putExtra("opisObjekta",Restorani.get(position).getOpisObjekta());
+        intent.putExtra("ratingObjekta",Restorani.get(position).getRating());
         startActivity(intent);
     }
 
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Restorani.add(objekt1);
         Restorani.add(objekt2);

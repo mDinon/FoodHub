@@ -32,9 +32,13 @@ public class AboutFragment extends Fragment {
         View myInflatedView = inflater.inflate(R.layout.fragment_about, container,false);
         ImageView logo = (ImageView) myInflatedView.findViewById(R.id.view_logo);
         TextView text = (TextView) myInflatedView.findViewById(R.id.textView);
+        TextView textOpis = (TextView) myInflatedView.findViewById(R.id.opis);
+        TextView textRating = (TextView) myInflatedView.findViewById(R.id.aboutRating);
         Bundle receivedData = ((FragmentCommunication) getActivity()).transferMessage();
         text.setText(receivedData.getString("name"));
+        textOpis.setText(receivedData.getString("opis"));
         logo.setImageResource(receivedData.getInt("logo"));
+        textRating.setText(receivedData.getString("rating"));
         return myInflatedView;
     }
 
