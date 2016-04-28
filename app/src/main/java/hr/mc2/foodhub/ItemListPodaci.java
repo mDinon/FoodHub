@@ -1,6 +1,6 @@
 package hr.mc2.foodhub;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
 /**
@@ -13,6 +13,7 @@ public class ItemListPodaci {
     private String opisObjekta;
     private int rating;
     private int imageResource;
+    private ArrayList<FoodListPodaci> menu = new ArrayList<>();
 
     public ItemListPodaci(String imeObjekta, String vrstaObjekta, int rating, int imageResource){
         this.imeObjekta = imeObjekta;
@@ -22,6 +23,20 @@ public class ItemListPodaci {
         //Stvori defaultni opis, pa se dodatno postavi sa setterom
         opisObjekta = imeObjekta + " OPIS";
     }
+
+    public ArrayList<FoodListPodaci> getMenu(){
+    if(menu != null){
+        return this.menu;
+    }
+    else{
+        ArrayList<FoodListPodaci> dummy = new ArrayList<>();
+        FoodListPodaci dummyPodaci = new FoodListPodaci("dummyHrana","999");
+        dummy.add(dummyPodaci);
+        return dummy;
+    }
+    }
+
+    public void setMenu(ArrayList<FoodListPodaci> menu){ this.menu = menu; }
 
     public String getOpisObjekta(){ return this.opisObjekta;}
 

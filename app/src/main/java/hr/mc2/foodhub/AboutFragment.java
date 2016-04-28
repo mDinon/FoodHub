@@ -34,7 +34,7 @@ public class AboutFragment extends Fragment {
         TextView text = (TextView) myInflatedView.findViewById(R.id.textView);
         TextView textOpis = (TextView) myInflatedView.findViewById(R.id.opis);
         TextView textRating = (TextView) myInflatedView.findViewById(R.id.aboutRating);
-        Bundle receivedData = ((FragmentCommunication) getActivity()).transferMessage();
+        Bundle receivedData = ((FragmentCommunicationMenu) getActivity()).transferAboutData();
         text.setText(receivedData.getString("name"));
         textOpis.setText(receivedData.getString("opis"));
         logo.setImageResource(receivedData.getInt("logo"));

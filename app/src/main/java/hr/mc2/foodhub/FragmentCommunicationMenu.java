@@ -7,8 +7,10 @@ import android.os.Bundle;
  */
 
 //Pomoću ovog interfacea fragment dohvaća podatke iz aktivnosti
-public interface FragmentCommunication {
+public interface FragmentCommunicationMenu {
 
-    public Bundle transferMessage();
+    public Bundle transferAboutData();
+
+    public Bundle transferFoodData();
 
 }

@@ -6,23 +6,36 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-
+//http://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
 //Aktivnost u kojoj korisnik vidi detalje o nekom objaktu
-public class MenuActivity extends AppCompatActivity implements FragmentCommunication{
+public class MenuActivity extends AppCompatActivity implements FragmentCommunicationMenu {
 
     /*Tu primaj i šalji podatke ostalim aktivnostima putem intentova*/
 
     //Ova funkcja šalje podatke AboutFragmentu
     @Override
-    public Bundle transferMessage() {
+    public Bundle transferAboutData() {
         Intent intent = getIntent();
         Bundle data = new Bundle();
         data.putString("name", intent.getStringExtra("imeObjekta"));
         data.putString("opis", intent.getStringExtra("opisObjekta"));
         data.putInt("logo", intent.getIntExtra("logoObjekta",0));
         data.putString("rating", intent.getStringExtra("ratingObjekta"));
+
         return data;
     }
+    @Override
+    public Bundle transferFoodData() {
+        Intent intent = getIntent();
+        Bundle data = new Bundle();
+
+        intent.getStringArrayExtra("cijeneProizvoda");
+        data.putStringArray("imenaProizvoda",intent.getStringArrayExtra("imenaProizvoda"));
+        data.putStringArray("cijeneProizvoda",intent.getStringArrayExtra("cijeneProizvoda"));
+
+        return data;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

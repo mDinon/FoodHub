@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,9 +25,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements OnItemClickListener{
 
     public ArrayList<ItemListPodaci> Restorani = new ArrayList<>();
+    public ArrayList<FoodListPodaci> Menu = new ArrayList<>();
+
+
+    //Dummy podaci
+    FoodListPodaci proizvod1 = new FoodListPodaci("Hamburger", "35");
+    FoodListPodaci proizvod2 = new FoodListPodaci("Pizza", "38");
+    FoodListPodaci proizvod3 = new FoodListPodaci("Cevapi", "25");
+    FoodListPodaci proizvod4 = new FoodListPodaci("Piva", "15");
 
     ItemListPodaci objekt1 = new ItemListPodaci("Mlinar", "Pekara", 50, R.drawable.logo);
     ItemListPodaci objekt2 = new ItemListPodaci("Samoborska pekara", "Pekara", 40, R.drawable.logo);
@@ -43,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     ItemListPodaci objekt12 = new ItemListPodaci("Abb", "Caffe bar", 60, R.drawable.logo);
     ItemListPodaci objekt13 = new ItemListPodaci("Aba", "Caffe bar", 60, R.drawable.logo);
 
+    //Dummy podaci - kraj
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -51,6 +61,19 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         intent.putExtra("logoObjekta",Restorani.get(position).getImageResource());
         intent.putExtra("opisObjekta",Restorani.get(position).getOpisObjekta());
         intent.putExtra("ratingObjekta",Restorani.get(position).getRating());
+
+        //Podaci za FoodFragment ( Menu )
+        int size = Menu.size();
+        String[] imenaProizvoda = new String[size];
+        String[] cijeneProizvoda = new String[size];
+        for(int i=0;i<size;i++){
+            imenaProizvoda[i] =  Menu.get(i).getImeProizvoda();
+            cijeneProizvoda[i] =  Menu.get(i).getCijena();
+        }
+        intent.putExtra("imenaProizvoda",imenaProizvoda);
+        intent.putExtra("cijeneProizvoda",cijeneProizvoda);
+        //Podaci za FoodFragment ( Menu ) - kraj
+
         startActivity(intent);
     }
 
@@ -62,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Menu.add(proizvod1);
+        Menu.add(proizvod2);
+        Menu.add(proizvod3);
+        Menu.add(proizvod4);
 
         Restorani.add(objekt1);
         Restorani.add(objekt2);
@@ -76,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         Restorani.add(objekt11);
         Restorani.add(objekt12);
         Restorani.add(objekt13);
+
+        for(int i = 0; i<Restorani.size();i++){
+            Restorani.get(i).setMenu(Menu);
+        }
 
         // Kreiranje array liste custom klase i popunjavanje iste
         ArrayList<ItemListPodaci> objekti = new ArrayList<>();
