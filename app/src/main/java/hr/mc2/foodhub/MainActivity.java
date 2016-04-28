@@ -29,9 +29,14 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
     public ArrayList<ItemListPodaci> Restorani = new ArrayList<>();
     public ArrayList<FoodListPodaci> Menu = new ArrayList<>();
+    public ArrayList<ReviewListPodaci> Recenzije = new ArrayList<>();
 
 
     //Dummy podaci
+    ReviewListPodaci recenzija1 = new ReviewListPodaci("Marko Dinon","Sve super, još samo da imate rudarske greblice", 9, R.drawable.test_avatar);
+    ReviewListPodaci recenzija2 = new ReviewListPodaci("Matija Kršić","Da mi je ovakvav restoran u Brezju", 8, R.drawable.test_avatar);
+    ReviewListPodaci recenzija3 = new ReviewListPodaci("Matija Lastovčić","Fenomenalan burek", 9, R.drawable.test_avatar);
+
     FoodListPodaci proizvod1 = new FoodListPodaci("Hamburger", "35");
     FoodListPodaci proizvod2 = new FoodListPodaci("Pizza", "38");
     FoodListPodaci proizvod3 = new FoodListPodaci("Cevapi", "25");
@@ -56,11 +61,14 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        //Podaci za AboutFragment
         Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
         intent.putExtra("imeObjekta",Restorani.get(position).getImeObjekta());
         intent.putExtra("logoObjekta",Restorani.get(position).getImageResource());
         intent.putExtra("opisObjekta",Restorani.get(position).getOpisObjekta());
         intent.putExtra("ratingObjekta",Restorani.get(position).getRating());
+        //Podaci za AboutFragment - kraj
 
         //Podaci za FoodFragment ( Menu )
         int size = Menu.size();
@@ -74,6 +82,25 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         intent.putExtra("cijeneProizvoda",cijeneProizvoda);
         //Podaci za FoodFragment ( Menu ) - kraj
 
+        //Podaci za ReviewFragment
+        size = Recenzije.size();
+        String[] korisnici = new String[size];
+        String[] recenzije = new String[size];
+        int[] ocjene = new int[size];
+        int[] avatari = new int[size];
+        for(int i=0;i<size;i++){
+            korisnici[i] =  Recenzije.get(i).getUsername();
+            recenzije[i] =  Recenzije.get(i).getReview();
+            ocjene[i] =  Recenzije.get(i).getRatingInt();
+            avatari[i] =  Recenzije.get(i).getImageResource();
+
+        }
+        intent.putExtra("korisnici",korisnici);
+        intent.putExtra("recenzije",recenzije);
+        intent.putExtra("ocjene",ocjene);
+        intent.putExtra("avatari",avatari);
+        //Podaci za ReviewFragment - kraj
+
         startActivity(intent);
     }
 
@@ -85,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Recenzije.add(recenzija1);
+        Recenzije.add(recenzija2);
+        Recenzije.add(recenzija3);
 
         Menu.add(proizvod1);
         Menu.add(proizvod2);

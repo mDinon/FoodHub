@@ -15,6 +15,14 @@ import java.util.ArrayList;
 * Nema puno ovdje zasad*/
 public class ReviewFragment extends Fragment{
 
+    private ArrayList<ReviewListPodaci> populateReviewList(String[] imena, String[] recenzije, int[] ocjene, int[] avatari){
+        ArrayList<ReviewListPodaci> reviewListtoPopulate = new ArrayList<>();
+        for(int i = 0;i<imena.length;i++){
+            reviewListtoPopulate.add(new ReviewListPodaci(imena[i], recenzije[i], ocjene[i], avatari[i]));
+        }
+        return reviewListtoPopulate;
+    }
+
     public ArrayList<ReviewListPodaci> Recenzije = new ArrayList<>();
 
     ReviewListPodaci objekt1 = new ReviewListPodaci("Marko Dinon", "Jako ukusno moram priznat! Al ne ko rudarske greblice...", 50, R.drawable.test_avatar);
@@ -37,9 +45,17 @@ public class ReviewFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myInflatedView = inflater.inflate(R.layout.fragment_review, container, false);
 
-        Recenzije.add(objekt1);
+        /*Recenzije.add(objekt1);
         Recenzije.add(objekt2);
-        Recenzije.add(objekt3);
+        Recenzije.add(objekt3);*/
+
+        Bundle receivedData = ((FragmentCommunicationMenu) getActivity()).transferReviewData();
+        String[] korisnici = receivedData.getStringArray("korisnici");
+        String[] recenzije = receivedData.getStringArray("recenzije");
+        int[] ocjene = receivedData.getIntArray("ocjene");
+        int[] avatari = receivedData.getIntArray("avatari");
+
+        Recenzije = populateReviewList(korisnici,recenzije,ocjene,avatari);
 
         // Kreiranje array liste custom klase i popunjavanje iste
         ArrayList<ReviewListPodaci> objekti = new ArrayList<>();

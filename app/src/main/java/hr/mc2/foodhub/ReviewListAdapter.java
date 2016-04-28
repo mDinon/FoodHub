@@ -30,13 +30,13 @@ public class ReviewListAdapter extends ArrayAdapter<ReviewListPodaci> {
         // Dohvaćanje view-ova za populaciju podacima
         TextView textUsername = (TextView) convertView.findViewById(R.id.Username);
         TextView textReview = (TextView) convertView.findViewById(R.id.review);
-        TextView textRating = (TextView) convertView.findViewById(R.id.rating);
+        TextView textRating = (TextView) convertView.findViewById(R.id.reviewUserRating);
         ImageView userImage = (ImageView) convertView.findViewById(R.id.userImage);
 
         // Populacija podataka u dohvaćene view-ove
         textUsername.setText(noviPodaci.getUsername());
         textReview.setText(noviPodaci.getReview());
-        /*textRating.setText(noviPodaci.getRating());*/
+        textRating.setText(noviPodaci.getRating());
         userImage.setImageResource(noviPodaci.getImageResource());
 
         // Vraćanje završenog view-a kako bi se prikazao na ekranu

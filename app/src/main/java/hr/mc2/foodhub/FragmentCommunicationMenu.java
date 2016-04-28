@@ -13,4 +13,6 @@ public interface FragmentCommunicationMenu {
 
     public Bundle transferFoodData();
 
+    public Bundle transferReviewData();
+
 }

@@ -29,13 +29,24 @@ public class MenuActivity extends AppCompatActivity implements FragmentCommunica
         Intent intent = getIntent();
         Bundle data = new Bundle();
 
-        intent.getStringArrayExtra("cijeneProizvoda");
         data.putStringArray("imenaProizvoda",intent.getStringArrayExtra("imenaProizvoda"));
         data.putStringArray("cijeneProizvoda",intent.getStringArrayExtra("cijeneProizvoda"));
 
         return data;
     }
 
+    @Override
+    public Bundle transferReviewData() {
+        Intent intent = getIntent();
+        Bundle data = new Bundle();
+
+        data.putStringArray("korisnici",intent.getStringArrayExtra("korisnici"));
+        data.putStringArray("recenzije",intent.getStringArrayExtra("recenzije"));
+        data.putIntArray("ocjene",intent.getIntArrayExtra("ocjene"));
+        data.putIntArray("avatari",intent.getIntArrayExtra("avatari"));
+
+        return data;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
