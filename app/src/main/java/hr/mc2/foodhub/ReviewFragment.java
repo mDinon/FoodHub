@@ -1,6 +1,8 @@
 package hr.mc2.foodhub;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +13,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 
-/*Fragment za reviewove
-* Nema puno ovdje zasad*/
+/*Fragment za reviewove*/
 public class ReviewFragment extends Fragment{
+
+    private FloatingActionButton fab;
 
     private ArrayList<ReviewListPodaci> populateReviewList(String[] imena, String[] recenzije, int[] ocjene, int[] avatari){
         ArrayList<ReviewListPodaci> reviewListtoPopulate = new ArrayList<>();
@@ -24,12 +27,6 @@ public class ReviewFragment extends Fragment{
     }
 
     public ArrayList<ReviewListPodaci> Recenzije = new ArrayList<>();
-
-    ReviewListPodaci objekt1 = new ReviewListPodaci("Marko Dinon", "Jako ukusno moram priznat! Al ne ko rudarske greblice...", 50, R.drawable.test_avatar);
-    ReviewListPodaci objekt2 = new ReviewListPodaci("Matija Kršić", "Svaki dolazim ovdje, super je.", 40, R.drawable.test_avatar);
-    ReviewListPodaci objekt3 = new ReviewListPodaci("Matija Lastovčić", "Super sve. Dobar burek.", 40, R.drawable.test_avatar);
-
-
 
     @Override
     public void onAttach(Activity context) {
@@ -45,9 +42,19 @@ public class ReviewFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myInflatedView = inflater.inflate(R.layout.fragment_review, container, false);
 
-        /*Recenzije.add(objekt1);
-        Recenzije.add(objekt2);
-        Recenzije.add(objekt3);*/
+
+        fab = (FloatingActionButton) myInflatedView.findViewById(R.id.newReview);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Click action
+                Intent intent = new Intent(getActivity(), WriteReviewActivity.class);
+                //Očekuje ReviewListPodaci objekt
+                startActivityForResult(intent, 1);
+
+            }
+
+        });
 
         Bundle receivedData = ((FragmentCommunicationMenu) getActivity()).transferReviewData();
         String[] korisnici = receivedData.getStringArray("korisnici");
@@ -56,6 +63,14 @@ public class ReviewFragment extends Fragment{
         int[] avatari = receivedData.getIntArray("avatari");
 
         Recenzije = populateReviewList(korisnici,recenzije,ocjene,avatari);
+
+      /*Nepotrebno
+        Bundle newReviewData = ((FragmentCommunicationMenu) getActivity()).passNewReview();
+
+      if(newReviewData!=null) {
+            ReviewListPodaci novaRecenzija = new ReviewListPodaci("Nickname", newReviewData.getString("reviewText"), newReviewData.getInt("rating"), R.drawable.test_avatar);
+            Recenzije.add(novaRecenzija);
+        }*/
 
         // Kreiranje array liste custom klase i popunjavanje iste
         ArrayList<ReviewListPodaci> objekti = new ArrayList<>();
@@ -73,4 +88,6 @@ public class ReviewFragment extends Fragment{
 
         return myInflatedView;
     }
+
+
 }

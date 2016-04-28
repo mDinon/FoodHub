@@ -15,4 +15,7 @@ public interface FragmentCommunicationMenu {
 
     public Bundle transferReviewData();
 
+    /*Nepotrebno
+    public Bundle passNewReview();*/
+
 }

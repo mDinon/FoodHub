@@ -6,9 +6,37 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-//http://stackoverflow.com/questions/2139134/how-to-send-an-object-from-one-android-activity-to-another-using-intents
-//Aktivnost u kojoj korisnik vidi detalje o nekom objaktu
+
+
+//Aktivnost u kojoj korisnik vidi detalje o nekom objektu
 public class MenuActivity extends AppCompatActivity implements FragmentCommunicationMenu {
+
+    String storeReviewText;
+    int storeRating = 0;
+
+    /*Nepotrebno
+    public Bundle passNewReview(){
+            if(storeRating!=0){
+            Intent intent = getIntent();
+            Bundle reviewData = new Bundle();
+            reviewData.putString("reviewText", storeReviewText);
+            reviewData.putInt("rating", storeRating);
+            return reviewData;}
+        else return null;
+    }*/
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //if (requestCode == 1) {
+            //if(resultCode == RESULT_OK){
+                String userReview =data.getStringExtra("reviewText");
+                int userRating =data.getIntExtra("rating",0);
+                storeReviewText = userReview;
+                storeRating = userRating;
+
+           // }
+       // }
+    }
 
     /*Tu primaj i šalji podatke ostalim aktivnostima putem intentova*/
 
@@ -53,12 +81,8 @@ public class MenuActivity extends AppCompatActivity implements FragmentCommunica
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab1));
