@@ -64,14 +64,6 @@ public class ReviewFragment extends Fragment{
 
         Recenzije = populateReviewList(korisnici,recenzije,ocjene,avatari);
 
-      /*Nepotrebno
-        Bundle newReviewData = ((FragmentCommunicationMenu) getActivity()).passNewReview();
-
-      if(newReviewData!=null) {
-            ReviewListPodaci novaRecenzija = new ReviewListPodaci("Nickname", newReviewData.getString("reviewText"), newReviewData.getInt("rating"), R.drawable.test_avatar);
-            Recenzije.add(novaRecenzija);
-        }*/
-
         // Kreiranje array liste custom klase i popunjavanje iste
         ArrayList<ReviewListPodaci> objekti = new ArrayList<>();
         for(int i=0; i<Recenzije.size();i++){

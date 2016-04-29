@@ -1,17 +1,31 @@
 package hr.mc2.foodhub;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 /*Prikazuje cjenik*/
-public class FoodFragment extends Fragment{
+public class FoodFragment extends Fragment implements AdapterView.OnItemClickListener {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Bundle receivedData = ((FragmentCommunicationMenu) getActivity()).transferFoodData();
+        String[] imenaProizvoda = receivedData.getStringArray("imenaProizvoda");
+        String[] cijeneProizvoda = receivedData.getStringArray("cijeneProizvoda");
+        String[] sastojciProizvoda = receivedData.getStringArray("sastojciProizvoda");
+        Intent intent = new Intent(getActivity(),ProductDetailsActivity.class);
+        intent.putExtra("imeProizvoda",imenaProizvoda[position]);
+        intent.putExtra("cijenaProizvoda",cijeneProizvoda[position]);
+        intent.putExtra("sastojciProizvoda",sastojciProizvoda[position]);
+        startActivity(intent);
+    }
 
     private ArrayList<FoodListPodaci> populateFoodList(String[] imena, String[] cijene){
         ArrayList<FoodListPodaci> foodListtoPopulate = new ArrayList<>();
@@ -53,6 +67,7 @@ public class FoodFragment extends Fragment{
         FoodListAdapter adapter = (new FoodListAdapter(getActivity(), R.layout.fragment_food, Hrana));
         // Postavljanje adaptera u listview
         ListView listView = (ListView) myInflatedView.findViewById(R.id.listViewFood);
+        listView.setOnItemClickListener(this);
         //listView.setOnItemClickListener(this);
         listView.setAdapter(adapter);
 

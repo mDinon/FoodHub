@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="hr.mc2.foodhub.MenuActivity" />
-
+        <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".WriteReviewActivity"
             android:label="FoodHub">
         </activity>

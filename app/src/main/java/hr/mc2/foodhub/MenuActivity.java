@@ -59,6 +59,7 @@ public class MenuActivity extends AppCompatActivity implements FragmentCommunica
 
         data.putStringArray("imenaProizvoda",intent.getStringArrayExtra("imenaProizvoda"));
         data.putStringArray("cijeneProizvoda",intent.getStringArrayExtra("cijeneProizvoda"));
+        data.putStringArray("sastojciProizvoda",intent.getStringArrayExtra("sastojciProizvoda"));
 
         return data;
     }

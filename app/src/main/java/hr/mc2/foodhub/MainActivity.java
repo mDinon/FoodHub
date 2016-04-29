@@ -1,28 +1,17 @@
 package hr.mc2.foodhub;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.io.Serializable;
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends AppCompatActivity implements OnItemClickListener{
@@ -74,12 +63,15 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         int size = Menu.size();
         String[] imenaProizvoda = new String[size];
         String[] cijeneProizvoda = new String[size];
+        String[] sastojciProizvoda = new String[size];
         for(int i=0;i<size;i++){
             imenaProizvoda[i] =  Menu.get(i).getImeProizvoda();
             cijeneProizvoda[i] =  Menu.get(i).getCijena();
+            sastojciProizvoda[i] =  Menu.get(i).getSastojke();
         }
         intent.putExtra("imenaProizvoda",imenaProizvoda);
         intent.putExtra("cijeneProizvoda",cijeneProizvoda);
+        intent.putExtra("sastojciProizvoda",sastojciProizvoda);
         //Podaci za FoodFragment ( Menu ) - kraj
 
         //Podaci za ReviewFragment

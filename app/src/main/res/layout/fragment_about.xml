@@ -27,15 +27,13 @@
         android:layout_height="wrap_content"
         android:text="Mjesto di moš jest, pit, delat, bit, spat"
         android:id="@+id/opis"
-        android:layout_below="@+id/view_logo"
+        android:layout_below="@+id/aboutRating"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="100"
         android:textSize="23dp"
@@ -45,7 +43,7 @@
         android:layout_alignParentEnd="true"
         android:background="@drawable/star"
         android:textAlignment="center"
-        android:paddingTop="11dp"
-        android:layout_alignBottom="@+id/view_logo" />
+        android:paddingTop="20dp"
+        />
 
 </RelativeLayout>

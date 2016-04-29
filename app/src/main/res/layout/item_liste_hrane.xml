@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:text="PROIZVOD"
         android:id="@+id/imeProizvoda"
+        android:textSize="15dp"
         android:paddingLeft="15dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp" />
@@ -17,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="HRK"
         android:id="@+id/cijenaProizvoda"
+        android:textSize="15dp"
         android:layout_gravity="right"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"

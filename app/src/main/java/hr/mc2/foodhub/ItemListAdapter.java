@@ -44,12 +44,12 @@ public class ItemListAdapter extends ArrayAdapter<ItemListPodaci> {
         imageLogo.setImageResource(noviPodaci.getImageResource());
 
         // Vraćanje završenog view-a kako bi se prikazao na ekranu
-        if(position % 2 == 0){
+        /*if(position % 2 == 0){
             convertView.setBackgroundColor(Color.LTGRAY);
-            /*float[] a = {216,49,100};
-            convertView.setBackgroundColor(Color.HSVToColor(a));*/
+            float[] a = {216,49,100};
+            convertView.setBackgroundColor(Color.HSVToColor(a));
             //convertView.textImeObjekta.setTextColor(Color.WHITE);
-        }
+        }*/
         return convertView;
     }
 
