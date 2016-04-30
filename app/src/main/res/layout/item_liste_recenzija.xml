@@ -46,6 +46,7 @@
         android:background="@drawable/star"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:textColor="@color/ratingFontColor"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/review" />

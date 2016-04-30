@@ -32,11 +32,12 @@
 
     <TextView
         android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="100"
-        android:textSize="23dp"
+        android:textSize="@dimen/font_size"
         android:id="@+id/rating"
+        android:textColor="@color/ratingFontColor"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

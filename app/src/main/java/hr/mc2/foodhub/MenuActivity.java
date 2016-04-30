@@ -50,6 +50,11 @@ public class MenuActivity extends AppCompatActivity implements FragmentCommunica
         data.putInt("logo", intent.getIntExtra("logoObjekta",0));
         data.putString("rating", intent.getStringExtra("ratingObjekta"));
 
+        data.putString("adresa", intent.getStringExtra("adresaObjekta"));
+        data.putString("url", intent.getStringExtra("urlObjekta"));
+        data.putString("telefon", intent.getStringExtra("telefonObjekta"));
+        data.putString("mail", intent.getStringExtra("mailObjekta"));
+
         return data;
     }
     @Override

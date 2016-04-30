@@ -11,6 +11,10 @@ public class ItemListPodaci {
     private String imeObjekta;
     private String vrstaObjekta;
     private String opisObjekta;
+    private String adresaObjekta;
+    private String telefonObjekta;
+    private String urlObjekta;
+    private String mailObjekta;
     private int rating;
     private int imageResource;
     private ArrayList<FoodListPodaci> menu = new ArrayList<>();
@@ -22,6 +26,10 @@ public class ItemListPodaci {
         this.imageResource = imageResource;
         //Stvori defaultni opis, pa se dodatno postavi sa setterom
         opisObjekta = imeObjekta + " OPIS";
+        adresaObjekta = "adresa";
+        telefonObjekta = "broj za kontakt";
+        urlObjekta = "web stranica";
+        mailObjekta = "mail za kontakt";
     }
 
     public ArrayList<FoodListPodaci> getMenu(){
@@ -35,6 +43,14 @@ public class ItemListPodaci {
         return dummy;
     }
     }
+
+    public String getAdresaObjekta(){return this.adresaObjekta;}
+
+    public String getTelefonObjekta(){return this.telefonObjekta;}
+
+    public String getUrlObjekta(){return this.urlObjekta;}
+
+    public String getMailObjekta(){return this.mailObjekta;}
 
     public void setMenu(ArrayList<FoodListPodaci> menu){ this.menu = menu; }
 

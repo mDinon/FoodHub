@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         intent.putExtra("logoObjekta",Restorani.get(position).getImageResource());
         intent.putExtra("opisObjekta",Restorani.get(position).getOpisObjekta());
         intent.putExtra("ratingObjekta",Restorani.get(position).getRating());
+        intent.putExtra("adresaObjekta",Restorani.get(position).getAdresaObjekta());
+        intent.putExtra("telefonObjekta",Restorani.get(position).getTelefonObjekta());
+        intent.putExtra("urlObjekta",Restorani.get(position).getUrlObjekta());
+        intent.putExtra("mailObjekta",Restorani.get(position).getMailObjekta());
         //Podaci za AboutFragment - kraj
 
         //Podaci za FoodFragment ( Menu )

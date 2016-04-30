@@ -35,7 +35,14 @@ public class AboutFragment extends Fragment {
         TextView textOpis = (TextView) myInflatedView.findViewById(R.id.opis);
         TextView textRating = (TextView) myInflatedView.findViewById(R.id.aboutRating);
         Bundle receivedData = ((FragmentCommunicationMenu) getActivity()).transferAboutData();
-        text.setText(receivedData.getString("name"));
+
+        String ime = receivedData.getString("name");
+        String adresa = receivedData.getString("adresa");
+        String url = receivedData.getString("url");
+        String mail = receivedData.getString("mail");
+        String telefon = receivedData.getString("telefon");
+        text.setText(ime +"\n" + adresa + "\n" + telefon + "\n" + mail + "\n" + url  );
+
         textOpis.setText(receivedData.getString("opis"));
         logo.setImageResource(receivedData.getInt("logo"));
         textRating.setText(receivedData.getString("rating"));

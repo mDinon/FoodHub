@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff8a00</color>
     <color name="listViewColor">#66ccff</color>
+    <color name="ratingFontColor">#ffffff</color>
 </resources>

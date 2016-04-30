@@ -48,6 +48,7 @@
         android:layout_alignParentStart="true"
         android:clickable="false"
         android:cursorVisible="false"
+        android:textSize="@dimen/font_size_long_text"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_below="@+id/userImageWriteReview"
@@ -56,19 +57,19 @@
 
     <TextView
         android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="tap"
-        android:textSize="23dp"
+        android:textSize="@dimen/font_size"
         android:id="@+id/setUserReview"
         android:background="@drawable/star"
         android:textAlignment="center"
-        android:paddingTop="11dp"
+        android:textColor="@color/ratingFontColor"
+        android:paddingTop="20dp"
         android:clickable="true"
-        android:layout_toRightOf="@+id/userImageWriteReview"
-        android:layout_toEndOf="@+id/userImageWriteReview"
-        android:layout_below="@+id/UsernameWriteReview"
-        android:layout_alignBottom="@+id/userImageWriteReview" />
+        android:layout_below="@+id/toolbarWriteReview"
+        android:layout_alignRight="@+id/submitReviewButton"
+        android:layout_alignEnd="@+id/submitReviewButton" />
 
     <Button
         android:layout_width="wrap_content"
